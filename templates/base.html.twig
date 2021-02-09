@@ -10,6 +10,9 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% include "partials/navigation.html.twig" %}
+        <main class="max-w-7xl mx-auto px-4">
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>

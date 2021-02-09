@@ -3,5 +3,12 @@
 {% block title %}Hello ConferenceController!{% endblock %}
 
 {% block body %}
-    <h1>Hello</h1>
+
+{% if conferences|length > 0 %}
+    <h2 class="text-2xl trakcing-tight font-semibold">All conferences</h2>
+    {% for conference in conferences %}
+        <a href="{{ path('conference.show', { id: conference.id }) }}" class="block my-2">{{ conference.city }} {{ conference.year }}</a>
+    {% endfor %}
+{% endif %}
+
 {% endblock %}
