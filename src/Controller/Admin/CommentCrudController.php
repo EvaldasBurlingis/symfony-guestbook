@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Comment;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -46,9 +47,9 @@ class CommentCrudController extends AbstractCrudController
                 ->setBasePath('/uploads/photos')
                 ->setLabel('Photo')
                 ->onlyOnIndex();
-
+                
         $createdAt = DateField::new('createdAt');
-
+        
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOption('disabled', true);
         } else {
